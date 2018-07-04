@@ -5,9 +5,14 @@
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
 
-\usetheme{CambridgeUS}         
+\tikzstyle{input} = [rectangle, rounded corners, minimum width = 3cm,
+minimum height = 1cm, text centered, draw = black, fill = red!30]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
 
+\usetheme{CambridgeUS}
 
 
 \title{Automated Summarisation of Big Data using Rmarkdown}
@@ -25,19 +30,10 @@
   \inst{1}%
   University of Queensland
 }
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
 
 \date{UseR! July 2018}
-% - Either use conference name or its abbreviation.
-% - Not really informative to the audience, more for people (including
-%   yourself) who are reading the slides online
 
-
-% If you have a file called "university-logo-filename.xxx", where xxx
-% is a graphic format that can be processed by latex or pdflatex,
-% resp., then you can add a logo as follows:
-
+% Add logo
 \pgfdeclareimage[height=0.5cm]{university-logo}{logos}
 \logo{\pgfuseimage{university-logo}}
 
@@ -56,7 +52,7 @@
         \begin{frame}
           \titlepage
         \end{frame}
-        
+
         \begin{frame}{Outline}
           \tableofcontents
           % You might wish to add the option [pausesections]
@@ -64,13 +60,19 @@
 
 % Section and subsections will appear in the presentation overview
 % and table of contents.
-        \begin{frame}{Key Exchange}
-        
-
-            
+        \begin{frame}{The Motivation}
+            \begin{itemize}
+              \item Give background on catlin seaview survey
+              \item Slight background on use of a neural network for image annotation
+              \item fast data collection -> fast annotation -> slow to process
+              \item model output stored in a MySQL database, allows for easy integration with R
+              \item size of the data makes fast processing difficult
+              \item rmarkdown provides a solution for quick/consistent exploratory analysis of the data
+            \end{itemize}
         \end{frame}
 
-    \subsection{}
+    \subsection{The Data Structure}
+        In order to properly explain the 
 
 
 
@@ -80,16 +82,16 @@
 % You can reveal the parts of a slide one at a time
 % with the \pause command:
 
-%%%% SLIDE 6 %%%% 
+%%%% SLIDE 6 %%%%
 
         \begin{frame}{The Age of Quantum Computers}
-          
+
         %   \begin{itemize}
         %   \item {
         %     First item.
         %     \pause % The slide will pause after showing the first item
         %   }
-        %   \item {   
+        %   \item {
         %     Second item.
         %   }
         %   % You can also specify when the content should appear
@@ -107,24 +109,24 @@
         %   }
         %   \end{itemize}
         \end{frame}
-        
 
-        
+
+
 \section{Learning with Errors (LWE)}
 
     \subsection{The Learning with Errors Problem (LWE)}
 
-%%%% SLIDE 8 %%%% 
+%%%% SLIDE 8 %%%%
 
-        
+
 
     \subsection{Key Exchange with LWE}
-    
-%%% SLIDE 11 %%%% 
+
+%%% SLIDE 11 %%%%
 
         \begin{frame}{Key Exchange with LWE}
-        
-            
+
+
         \end{frame}
 
         % \begin{frame}{Blocks}
@@ -140,81 +142,79 @@
         % \end{frame}
 
 
-\section{Chinese Remainder with Errors} 
+\section{Chinese Remainder with Errors}
 
-    \subsection{Chinese Remainder Theorem} 
-    
-%%%% SLIDE 13 %%%% 
+    \subsection{Chinese Remainder Theorem}
 
-        
-        
+%%%% SLIDE 13 %%%%
+
+
+
 
     \subsection{Candidate for Key Exchange}
         \subsubsection{Some Constraints}
 
-%%%% SLIDE 15 %%%% 
+%%%% SLIDE 15 %%%%
 
         \begin{frame}{Constraints}
-                    
-            
+
+
         \end{frame}
-     
-%%%% SLIDE 16 %%%% 
+
+%%%% SLIDE 16 %%%%
 
         \begin{frame}{Constraints cont.}
-        
-            
+
+
 
         \end{frame}
-        
+
         \subsubsection{Progress on Key Exchange}
-        
-%%%% SLIDE 17 & 18 %%%% 
+
+%%%% SLIDE 17 & 18 %%%%
 
         \begin{frame}{3 Attempts so far}{First and Second Attempt}
-            
+
         \end{frame}
 
-%%%% SLIDE 18 %%%% 
-        
+%%%% SLIDE 18 %%%%
+
         \begin{frame}{3 Attempts so far}{Third Attempt - In progress}
-            
-            
-            
+
+
+
         \end{frame}
 % Placing a * after \section means it will not show in the
 % outline or table of contents.
 \section*{Summary}
 
-%%%% SLIDE 19 %%%% 
+%%%% SLIDE 19 %%%%
 
 \begin{frame}{Summary}
-  
+
 
 
 \end{frame}
 
 
 
-% All of the following is optional and typically not needed. 
+% All of the following is optional and typically not needed.
 \appendix
 \section<presentation>*{\appendixname}
 \subsection<presentation>*{For Further Reading}
 
 \begin{frame}[allowframebreaks]
   \frametitle<presentation>{For Further Reading}
-    
+
   \begin{thebibliography}{10}
-    
+
   \beamertemplatebookbibitems
   % Start with overview books.
-  
-  
-    
+
+
+
 
   \end{thebibliography}
 \end{frame}
 
 \end{document}
-
-
