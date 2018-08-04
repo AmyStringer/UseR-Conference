@@ -12,7 +12,7 @@
 %\usepackage[numbers, super, sort&compress]{natbib}
 %\usepackage[backend=biber,style=ieee, maxnames=4]{biblatex}
 %\usepackage[superscript, biblabel]{cite}
-\usepackage[backend=bibtex, bibstyle = authoryear, citestyle=authoryear, maxnames = 4, minnames = 1]{biblatex}
+\usepackage[backend=bibtex, bibstyle = numeric, citestyle=numeric, maxnames = 4, minnames = 1]{biblatex}
 \addbibresource{ref.bib}
 
 \newcommand{\cmark}{\ding{51}}
@@ -27,9 +27,9 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 \usetheme{CambridgeUS}
 
 
-\title{Automated Summarisation of Big Data using Rmarkdown}
+\title{Automated Summarisation of Big Data}
 \subtitle{Using data from the Catlin Seaview Survey - a global coral reef monitoring effort}
-\author{Amy Stringer}
+\author{Amy StringeR}
 \institute[Global Change Institute] % (optional, but mostly needed)
 {
   \inst{1}%
@@ -52,7 +52,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
 % Let's get started
 \begin{document}
-    \section{Introduction}
+    \section{IntRoduction}
         \begin{frame}
           \titlepage
         \end{frame}
@@ -63,8 +63,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
         \end{frame}
 
         \begin{frame}
-          \begin{block}{[Insert crowd banter]}
-              find out about the audience
+          \begin{block}{[Insert witty crowd banter]}
           \end{block}
         \end{frame}
 
@@ -75,11 +74,10 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
           \begin{columns}[T]
             \begin{column}{0.45\textwidth}
               \begin{itemize}
-                \item Coral reef monitoring program
-                \item Endeavouring to get a global baseline on coral cover and then monitor the state of reefs through resurvey efforts
+                \item Coral reef monitoring program endeavouring to develop a global baseline on reef health and then monitor the state of reefs through resurvey efforts
                 \item 5 regions around the world so far: Australia, the Caribbean, Southeast Asia, the Indian Ocean, The Pacific
                   \begin{itemize}
-                    \item Within these 5 major regions, we have 25 survey countries
+                    \item Within these 5 major regions, we have a total of 25 survey countries
                   \end{itemize}
               \end{itemize}
             \end{column}
@@ -117,33 +115,41 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
         \subsection{Image Collection}
             \begin{frame}{The Catlin Seaview Survey - Image Collection }
-                \begin{figure}
-                    \centering
-                    \includegraphics[width = 0.65\textwidth]{SVII.jpg}
-                    \caption{{\footnotesize A diver pushing the SVII scooter during a survey of the Great Barrier reef, for more on collection methodology, see \cite{Gonz16} \copyright XL Catlin Seaview Survey}}
-                \end{figure}
-            \end{frame}
-
-            \begin{frame}{Notes}
-                \begin{itemize}
-                  \item Images collected in 2km transects along a reef \cite{Gonz14}
-                  \item An image taken automatically every three seconds as a diver swims along the reef section
-                  \item Each image is GPS located
-                  \item speed of image collection compared to traditional methods
-                \end{itemize}
+              \begin{columns}[T]
+                \begin{column}{0.48\textwidth}
+                  \centering
+                  \begin{itemize}
+                    \item High definition images collected in 2km transects along a reef section - taken automatically every 3 seconds
+                    \item Each image is GPS located
+                    \item Speed of collection increased from traditional $60$m$^2$ per dive (45 min) to $2000$m$^2$ per dive
+                  \end{itemize}
+                \end{column}
+                \begin{column}{0.48\textwidth}
+                  \begin{figure}
+                      \centering
+                      \includegraphics[width = 0.8\textwidth]{SVII.jpg}
+                      \caption{{\footnotesize A diver pushing the SVII scooter during a survey of the Great Barrier reef. For more on collection methodology, see \cite{Gonz16} \copyright XL Catlin Seaview Survey}}
+                  \end{figure}
+                \end{column}
+              \end{columns}
             \end{frame}
 
             \begin{frame}
                 \begin{figure}
                     \centering
                     \includegraphics[width = 0.5\textwidth]{coral.jpg}
-                    \caption{An example image from a survey of the Great Barrier Reef}
+                    \caption{An example image from a survey of the Great Barrier Reef. Images like this, along with the data, are available on the XL Catlin Global Reef Record \cite{GRR}.}
                 \end{figure}
             \end{frame}
 
           \subsection{Image Annotation}
               \begin{frame}{Neural Network for Image Annotations}
-                  Using a neural network means that the image annotation process is efficient, with data being uploaded to the database only a week after collection of images is concluded
+                \begin{itemize}
+                  \item Previously a time consuming, manual task (potentially 3 decades of work for the CSS images)
+                  \item An automatic point-annotation method is now used based on machine learning algorithms (See \cite{Beijbom2015})
+                  \item Colour and texture of images are used as descriptors for label categories
+                  \item Coverage estimates are uploading within a week of collection
+                \end{itemize}
               \end{frame}
 
               \begin{frame}
@@ -154,47 +160,44 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                   \end{figure}
               \end{frame}
 
-              \begin{frame}{Revisting}
-                  Three main stages:
-                    \begin{enumerate}
-                      \item <1->{
-                      Efficient collection of images \uncover<2->{ \cmark}
-                      }
-                      \item <3-> {
-                      Efficient annotation of images \uncover<4-> { \cmark}
-                      }
-                      \item <5-> {
-                      Efficient calculation proportions, and visualisation of trends over all regions \uncover <6-> { \xmark}
-                      }
-                    \end{enumerate}
-              \end{frame}
+              % \begin{frame}{Revisting}
+              %     Three main stages:
+              %       \begin{enumerate}
+              %         \item <1->{
+              %         Efficient collection of images \uncover<2->{ \cmark}
+              %         }
+              %         \item <3-> {
+              %         Efficient annotation of images \uncover<4-> { \cmark}
+              %         }
+              %         \item <5-> {
+              %         Efficient summarisation and visualisation of trends over all regions \uncover <6-> { \xmark}
+              %         }
+              %       \end{enumerate}
+              % \end{frame}
 
     \section{The Need}
-        \subsection{Efficient Summarisation}
+        \subsection{Efficient SummaRisation}
             \begin{frame}{The Next Stage}
                 \begin{itemize}
-                  \item there's now a ``bottleneck'' in the analysis process
-                  \item fast data collection $\rightarrow$ fast annotation $\rightarrow$ slow to process
-                  \item The third stage was lacking an efficient process
-                  \item annotation output stored in a MySQL database, allows for easy integration with R
-                  \item Introducing Rmarkdown (\cite{rmarkdown})
-                  \item rmarkdown provides a solution for quick/consistent exploratory analysis of the data
+                  \item Fast data collection $\rightarrow$ fast annotation $\rightarrow$ bottle neck in processing
+                  \item Data stored using MySQL database, allowing for easy integration with R \cite{R, RMySQL}
+                  \item Introducing Rmarkdown \cite{rmarkdown}
+                  \item rmarkdown provides a solution for quick/consistent exploratory analysis of the data in a report format
+                  \item Visualisations! \cite{ggplot2}
                 \end{itemize}
             \end{frame}
 
 
       \section{New Challenges}
-
         \subsection{Contextual Challenges}
             \begin{frame}{Contextual Challenges}
                 \begin{itemize}
-                    \item Meaningful visualisations for those who will be using them
-                    \begin{itemize}
-                       \item these reports need to be useful for more than just the researchers, decision makers need to get some value out of them too
-                    \end{itemize}
                     \item Usability for non R users
+                    \item Meaningful visualisations
                     \begin{itemize}
-                      \item this will allow me to talk about the use of parameters on the document and the use of child documents for textual portions of the reports
+                       \item They need to be useful for more than just the researchers; local government and others in charge of marine protection need to get some value
+                       \item Comparisons to literature
+                       \item Many label groups, and spatial scales in the dataset
                     \end{itemize}
                 \end{itemize}
               \end{frame}
@@ -220,77 +223,164 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
             \begin{frame}{Data Challenges - Labels}
                 \begin{itemize}
-                  \item talk about the label set and need to visualise changes at all of these levels (label, global label and functional group)
+                  \item Benthic labels describe the community benthic category
+                  \item Global labels describe morphological categories
+                  \item Each region has 5 functional groups
+                  \begin{itemize}
+                    \item Hard corals, soft corals
+                    \item Algae
+                    \item Other invertibrates, other
+                  \end{itemize}
                 \end{itemize}
+
+              \begin{center}
+                  \begin{table}
+                      \begin{tabular}{l r r r}
+                          Region                &   Benthic Labels         &   Global Labels   \\ \hline
+                          GBR                   &   27                     &   13              \\
+                          Indian Ocean          &   49                     &   17              \\
+                          Caribbean             &   67                     &   16              \\
+                          Southeast Asia        &   71                     &   17              \\
+                          Pacific               &   40                     &   12              \\
+                      \end{tabular}
+                  \end{table}
+              \end{center}
             \end{frame}
 
       \section{Solutions}
-          \subsection{RMySQL and Parameterised Rmarkdown}
-              \begin{frame}{RMySQL}
+
+          \subsection{Dynamic Plotting Environments}
+
+              \begin{frame}{Plotting Hiccups}
+                \begin{itemize}
+                  \item Plots have been created at multiple spatial scales; reef scale, subregion scale, transect scale
                   \begin{itemize}
-                    \item allows for accessing the database through Rstudio
+                    \item Plot will have varying sizes based on the number of reefs/subregions/transects in the respective regional dataset
                   \end{itemize}
+                  \item Differing label sets among region makes visualisation an exciting challenge at each of these spatial scales
+                  \begin{itemize}
+                    \item Near impossible for clearly identifiable colours on community benthic level
+                    \item Visualisations at this level are more overwhelming than helpful
+                  \end{itemize}
+                  \item Single survey regions need some kind of conditioning on their temporal plot construction
+                \end{itemize}
               \end{frame}
 
-              \begin{frame}{Parameterising Rmarkdown Documents}
-                        \begin{figure}
-                          \centering
-                          \begin{subfigure}[t]{0.48\textwidth}
-                            \centering
-                              \includegraphics[width = \textwidth]{yaml_header.png}
-                              \caption{yaml header when making use of document parameters}
-                              \label{fig:yaml_header}
-                          \end{subfigure}\hskip 1em%
-                          \begin{subfigure}[t]{0.48\textwidth}
-                            \centering
-                              \includegraphics[width = \textwidth]{SQL_connect.png}
-                              \caption{Working example accessing the database with the document input parameters}
-                              \label{fig:SQL_connect}
-                          \end{subfigure}
-                        \end{figure}
+              \begin{frame}{Dynamic Plotting}
+                \begin{itemize}
+                  \item The code wrapper in the rmarkdown source script allows you to set a variable to the figure heights and widths
+                \end{itemize}
+
+                \begin{figure}
+                    \centering
+                    \includegraphics[width = \textwidth]{DynamicPlot.png}
+                    \caption{Plot wrapper with an exmaple of the figure height addjustment according to the number of plot facets. Also shows here is a boolean variable for evaluation of the code segment. }
+                \end{figure}
+              \end{frame}
+
+              \begin{frame}{Reef Scale Visualisations}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width = \textwidth]{ReefVis.png}
+                    \caption{An example visualisation of only 3 of the 36 GBR reefs. This plot is created at the functional group scale. Note that the x axis is year, and the y axis is percentage coverage over the reef in question. }
+                \end{figure}
+             \end{frame}
+
+             \begin{frame}{Reef Scale Visualisations}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width = \textwidth]{ReefVisSingle.png}
+                    \caption{An example of the reef scale visualisaton for the reefs only surveyed once. Coverage here is represented in the same way as the previous plot, giving a percentage coverage for each basic functional group.}
+                \end{figure}
+             \end{frame}
+
+             % \begin{frame}{Subregion Visualisations}
+             %    \begin{figure}
+             %        \centering
+             %        \includegraphics[width = 0.55\textwidth]{SubregionVis.png}
+             %        \caption{An example of subregion scale visualisations}
+             %    \end{figure}
+             % \end{frame}
+
+             \begin{frame}{Change at the Transect Scale}
+               \begin{columns}[T]
+                 \begin{column}{0.48\textwidth}
+                   \centering
+                    \begin{figure}
+                        \centering
+                        \includegraphics[width = \textwidth]{PlotChange.png}
+                   \end{figure}
+                 \end{column}
+                 \begin{column}{0.48\textwidth}
+                   \centering
+                    \begin{itemize}
+                      \item Extra challenges that arise from survey design
+                      \item Visualised at the global label level
+                      \item Investigate change only over consecutive survey years
+                    \end{itemize}
+                 \end{column}
+              \end{columns}
+             \end{frame}
+
+             \subsection{Interactive Maps using Leaflet}
+                 \begin{frame}{Leaflet}
+
+                    Using Leaflet \cite{leaflet} for interactive maps allows for readers to see where exactly the surveys take place. Each transect marker represents a 2km survey region.
+
+                     \begin{figure}
+                        \centering
+                        \includegraphics[width = 0.55\textwidth]{Leaflet.png}
+                        \caption{Disclaimer - this image is not so interactive }
+                     \end{figure}
+                 \end{frame}
+
+
+          \subsection{RMySQL and Parameterised Rmarkdown}
+              \begin{frame}{Parameterising Rmarkdown Documents and RMySQL}
+                RMySQL \cite{RMySQL} allows for accessing the database through Rstudio negating the need for an external program
+                  \begin{figure}
+                    \centering
+                    \begin{subfigure}[t]{0.48\textwidth}
+                      \centering
+                        \includegraphics[width = \textwidth]{yaml_header.png}
+                        \caption{The header when making use of document parameters. In future, more parameters may be added to simplify the source script, but in the current stages things have been kept simple.}
+                        \label{fig:yaml_header}
+                    \end{subfigure}\hskip 1em%
+                    \begin{subfigure}[t]{0.48\textwidth}
+                      \centering
+                        \includegraphics[width = \textwidth]{SQL_connect.png}
+                        \caption{Working example accessing the database with the document input parameters. The use of RMySQL allows for connection to the database and extraction of data within the Rmarkdown source script.}
+                        \label{fig:SQL_connect}
+                    \end{subfigure}
+                  \end{figure}
                 \end{frame}
 
-                \begin{frame}{Notes}
-                    \begin{itemize}
-                      \item added parameters for location, as well as user and password for the databse
-                      \item allows us to select a location through the use of render()
-                      \item this also allows users to add in their username and password for database access
-                    \end{itemize}
+                \begin{frame}{How's the SeRenity?}
+                    \begin{figure}
+                        \centering
+                        \includegraphics[width = \textwidth]{useR.png}
+                        \caption{The only bit of code a user needs to deal with to generate up to 25 reports.}
+                    \end{figure}
+
                 \end{frame}
 
           \subsection{Child Documents}
               \begin{frame}{Child Documents for Textual Components}
                   \begin{itemize}
                     \item Introductions and discussions will need to be different across the regions
-                    \item Using the parameters of the documents we can include a particular introduction file for each specific region
-                    \item This also allows for easy editing should that be necessary, without needing to open the main rmardown document which could be overwhelming and complicated for those the reports are designed for
+                    \item Using the parameters of the source we can import a specific introduction file for each desired region
+                    \item Child documents allow for easy editing of introductions/methods/discussions, without needing to open the main source document which is overwhelming and complicated
                   \end{itemize}
               \end{frame}
 
-          \subsection{Dynamic Plotting Environments}
-              \begin{frame}{Dynamic Plotting }
-                  \begin{itemize}
-                    \item different regions have a different labelset, which makes visualisation a different challenge for each subset of the data
-                    \item the code wrapper in the rmarkdown source script allows you to set a variable to the figure heights and widths
-                    \item many regions have only one survey and so many of the plots break without some kind of conditioning on their construction
-                  \end{itemize}
-              \end{frame}
-
-          \subsection{Interactive Maps using Leaflet}
-              \begin{frame}{Leaflet}
-                  \begin{itemize}
-                    \item Handy for readers to see where exactly the surveys take place
-                    \item Ideally this marker would be a measure from the center of each transect or reef, but the marker point is taken to be the GPS coords of the first image in a transect/reef
-                    \item At this stage the maps only show reef name and transect number which appeals to perhaps local monitoring teams (Reef scale) and the survey/image collection teams (transect number)
-                  \end{itemize}
-              \end{frame}
-
-
-
-
-
-
-
+      \section{Future Work}
+        \begin{frame}{Future Work}
+          \begin{itemize}
+            \item Currently this isn't a fully automated process
+            \item Talk of linking these reports to a website
+            \item Extra parameterisation of the document - perhaps a structure change based on the individual generating the report (e.g. management, research etc)
+          \end{itemize}
+        \end{frame}
 
 % All of the following is optional and typically not needed.
 \appendix
@@ -302,5 +392,14 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
     %\bibliographystyle{agsm}
     \printbibliography
   \end{frame}
+
+\begin{frame}
+  Notes from audience
+  \begin{itemize}
+    \item Add in some defensive programming - what is users enter in an invalid country, at this stage they would get a data base error for for a non R user this is not particularly informative. This also makes way to funny error messages, funny error messages rule
+    \item There was a comment about because able to run the short for loop script through terminal and negate the need for even opening R or any of the associated scripts. This is definitely possible and I'm sad I hadn't considered it earlier
+    \item 
+  \end{itemize}
+\end{frame}
 
 \end{document}
