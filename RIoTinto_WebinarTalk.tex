@@ -9,9 +9,6 @@
 \usepackage{pifont}
 \usepackage{color}
 \usepackage[font = footnotesize]{subcaption}
-%\usepackage[numbers, super, sort&compress]{natbib}
-%\usepackage[backend=biber,style=ieee, maxnames=4]{biblatex}
-%\usepackage[superscript, biblabel]{cite}
 \usepackage[backend=bibtex, bibstyle = numeric, citestyle=numeric, maxnames = 4, minnames = 1]{biblatex}
 \addbibresource{ref.bib}
 
@@ -30,25 +27,17 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 \title{Automated Summarisation of Big Data}
 \subtitle{Using data from the Catlin Seaview Survey - a global coral reef monitoring effort}
 \author{Amy StringeR}
-\institute[Global Change Institute] % (optional, but mostly needed)
+\institute[Global Change Institute]
 {
   \inst{1}%
   University of Queensland
 }
-\date{UseR! July 2018}
+\date{August 2018}
 
 % Add logo
 \pgfdeclareimage[height=0.5cm]{university-logo}{logos}
 \logo{\pgfuseimage{university-logo}}
 
-% Delete this, if you do not want the table of contents to pop up at
-% the beginning of each subsection:
-\AtBeginSubsection[]
-{
-  \begin{frame}<beamer>{Outline}
-    \tableofcontents[currentsection,currentsubsection]
-  \end{frame}
-}
 
 % Let's get started
 \begin{document}
@@ -59,7 +48,6 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
         \begin{frame}{Outline}
           \tableofcontents
-          % You might wish to add the option [pausesections]
         \end{frame}
 
         \begin{frame}
@@ -74,10 +62,10 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
           \begin{columns}[T]
             \begin{column}{0.45\textwidth}
               \begin{itemize}
-                \item Coral reef monitoring program endeavouring to develop a global baseline on reef health and then monitor the state of reefs through resurvey efforts
-                \item 5 regions around the world so far: Australia, the Caribbean, Southeast Asia, the Indian Ocean, The Pacific
+                \item Aim to develop a global baseline on reef health and then monitor the state of these reefs through resurvey efforts
+                \item 5 regions around the world so far: The Great Barrier Reef, the Caribbean, Southeast Asia, the Indian Ocean, The Pacific
                   \begin{itemize}
-                    \item Within these 5 major regions, we have a total of 25 survey countries
+                    \item a total of 25 survey countries
                   \end{itemize}
               \end{itemize}
             \end{column}
@@ -119,7 +107,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                 \begin{column}{0.48\textwidth}
                   \centering
                   \begin{itemize}
-                    \item High definition images collected in 2km transects along a reef section - taken automatically every 3 seconds
+                    \item HD images collected in 2km transects along a reef section - taken automatically every 3 seconds
                     \item Each image is GPS located
                     \item Speed of collection increased from traditional $60$m$^2$ per dive (45 min) to $2000$m$^2$ per dive
                   \end{itemize}
@@ -128,17 +116,19 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                   \begin{figure}
                       \centering
                       \includegraphics[width = 0.8\textwidth]{SVII.jpg}
-                      \caption{{\footnotesize A diver pushing the SVII scooter during a survey of the Great Barrier reef. For more on collection methodology, see \cite{Gonz16} \copyright XL Catlin Seaview Survey}}
+                      \caption{{\footnotesize A diver pushing the SVII scooter during a survey of the Great Barrier reef\footnotemark  \copyright XL Catlin Seaview Survey}}
                   \end{figure}
+
                 \end{column}
               \end{columns}
+              \footnotetext{\emph{Scaling up ecological measurements of coral reefs using \newline semi-automated field image collection and analysis} \newline Manuel Gonzalez - Rivero et al. 2016}
             \end{frame}
 
             \begin{frame}
                 \begin{figure}
                     \centering
                     \includegraphics[width = 0.5\textwidth]{coral.jpg}
-                    \caption{An example image from a survey of the Great Barrier Reef. Images like this, along with the data, are available on the XL Catlin Global Reef Record \cite{GRR}.}
+                    \caption{An example image from a survey of the Great Barrier Reef. Images like this, along with the data, are available on the XL Catlin Global Reef Record\footnotemark. \footnotetext{The Ocean Agency. \emph{Global Reef Record} (2017) URL: \url{http://globalreefrecord.org/data}}}
                 \end{figure}
             \end{frame}
 
@@ -146,7 +136,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
               \begin{frame}{Neural Network for Image Annotations}
                 \begin{itemize}
                   \item Previously a time consuming, manual task (potentially 3 decades of work for the CSS images)
-                  \item An automatic point-annotation method is now used based on machine learning algorithms (See \cite{Beijbom2015})
+                  \item An automatic point-annotation method is now used based on machine learning algorithms\footnotemark. \footnotetext{O. Beijbom et al. \emph{Towards Automated Annotation of Benthic \newline Survey Images: Variability of Human Experts and Operational \newline Modes of Automation} (2015)}
                   \item Colour and texture of images are used as descriptors for label categories
                   \item Coverage estimates are uploading within a week of collection
                 \end{itemize}
@@ -160,30 +150,15 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                   \end{figure}
               \end{frame}
 
-              % \begin{frame}{Revisting}
-              %     Three main stages:
-              %       \begin{enumerate}
-              %         \item <1->{
-              %         Efficient collection of images \uncover<2->{ \cmark}
-              %         }
-              %         \item <3-> {
-              %         Efficient annotation of images \uncover<4-> { \cmark}
-              %         }
-              %         \item <5-> {
-              %         Efficient summarisation and visualisation of trends over all regions \uncover <6-> { \xmark}
-              %         }
-              %       \end{enumerate}
-              % \end{frame}
-
     \section{The Need}
         \subsection{Efficient SummaRisation}
             \begin{frame}{The Next Stage}
                 \begin{itemize}
                   \item Fast data collection $\rightarrow$ fast annotation $\rightarrow$ bottle neck in processing
-                  \item Data stored using MySQL database, allowing for easy integration with R \cite{R, RMySQL}
-                  \item Introducing Rmarkdown \cite{rmarkdown}
+                  \item Data stored using MySQL database, allowing for easy integration with RStudio\footnotemark \footnotetext{RMySQL, Joroen Oooms et al. 2017}
+                  \item Introducing Rmarkdown\footnotemark \footnotetext{Rmarkdown, JJ Allaire et al. 2017}
                   \item rmarkdown provides a solution for quick/consistent exploratory analysis of the data in a report format
-                  \item Visualisations! \cite{ggplot2}
+                  \item Visualisations\footnotemark! \footnotetext{Tidyverse, Hadley Wickham 2017}
                 \end{itemize}
             \end{frame}
 
@@ -325,7 +300,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
              \subsection{Interactive Maps using Leaflet}
                  \begin{frame}{Leaflet}
 
-                    Using Leaflet \cite{leaflet} for interactive maps allows for readers to see where exactly the surveys take place. Each transect marker represents a 2km survey region.
+                    Using Leaflet\footnotemark \footnotetext{\emph{Leaflet} J. Cheng, B. Karambelkar, Y. Xie 2017} for interactive maps allows for readers to see where exactly the surveys take place. Each transect marker represents a 2km survey region.
 
                      \begin{figure}
                         \centering
@@ -337,7 +312,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
           \subsection{RMySQL and Parameterised Rmarkdown}
               \begin{frame}{Parameterising Rmarkdown Documents and RMySQL}
-                RMySQL \cite{RMySQL} allows for accessing the database through Rstudio negating the need for an external program
+                RMySQL allows for accessing the database through Rstudio negating the need for an external program
                   \begin{figure}
                     \centering
                     \begin{subfigure}[t]{0.48\textwidth}
@@ -382,15 +357,6 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
           \end{itemize}
         \end{frame}
 
-% All of the following is optional and typically not needed.
-\appendix
-\section<presentation>*{\appendixname}
-\subsection<presentation>*{For Further Reading}
 
-\begin{frame}[allowframebreaks]
-  \frametitle<presentation>{References}
-    %\bibliographystyle{agsm}
-    \printbibliography
-  \end{frame}
 
 \end{document}
