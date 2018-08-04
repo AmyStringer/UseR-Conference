@@ -1,6 +1,5 @@
 % Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
 
-
 \documentclass{beamer}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{graphicx}
@@ -50,11 +49,6 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
           \tableofcontents
         \end{frame}
 
-        \begin{frame}
-          \begin{block}{[Insert witty crowd banter]}
-          \end{block}
-        \end{frame}
-
 % Section and subsections will appear in the presentation overview
 % and table of contents.
     \section{Context}
@@ -97,7 +91,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                   \begin{enumerate}
                     \item Collection of images
                     \item Annotation of images
-                    \item Calculating proportions, and visualing trends between surveys
+                    \item Calculating proportions, and visualising trends between surveys
                   \end{enumerate}
             \end{frame}
 
@@ -108,6 +102,7 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
                   \centering
                   \begin{itemize}
                     \item HD images collected in 2km transects along a reef section - taken automatically every 3 seconds
+                    \item Divers and craft travelling approximately 4km/h
                     \item Each image is GPS located
                     \item Speed of collection increased from traditional $60$m$^2$ per dive (45 min) to $2000$m$^2$ per dive
                   \end{itemize}
@@ -226,19 +221,21 @@ minimum height = 1cm, text centered, draw = black, fill = red!30]
 
           \subsection{Dynamic Plotting Environments}
 
-              \begin{frame}{Plotting Hiccups}
-                \begin{itemize}
-                  \item Plots have been created at multiple spatial scales; reef scale, subregion scale, transect scale
+              \begin{frame}{The Visualisations and Dynamic Plotting}
+                Several Challenges
                   \begin{itemize}
-                    \item Plot will have varying sizes based on the number of reefs/subregions/transects in the respective regional dataset
+                    \item Needed at multiple spatial scales and to be reproducible
+                    \item Differing label sets among regions
+                    \item Single survey regions
                   \end{itemize}
-                  \item Differing label sets among region makes visualisation an exciting challenge at each of these spatial scales
+
+                  \medskip
+                  
+                Several Solutions
                   \begin{itemize}
-                    \item Near impossible for clearly identifiable colours on community benthic level
-                    \item Visualisations at this level are more overwhelming than helpful
+                    \item Variable figure heights
+                    \item Lot of data cleaning and manipulation
                   \end{itemize}
-                  \item Single survey regions need some kind of conditioning on their temporal plot construction
-                \end{itemize}
               \end{frame}
 
               \begin{frame}{Dynamic Plotting}
